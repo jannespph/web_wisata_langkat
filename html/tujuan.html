@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tujuan Wisata - Langkat</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* RESET */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body { background: #f4f4f4; color: #333; }
+
+        /* NAVBAR MODERN */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(8px);
+            padding: 15px 60px;
+            z-index: 1000;
+            transition: 0.3s;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 35px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6b6b;
+            transform: scale(1.1);
+        }
+
+        /* HERO SECTION */
+        .header-section {
+            height: 70vh;
+            width: 100%;
+            background: url('../img/po.jpg') center/cover no-repeat;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 80px;
+            color: white;
+            text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+            position: relative;
+        }
+
+        .header-section::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            background: rgba(0,0,0,0.45);
+            z-index: 1;
+        }
+
+        .header-section > * { position: relative; z-index: 2; }
+
+        .header-section h1 {
+            font-size: 3.6rem;
+            margin-bottom: 10px;
+        }
+
+        .header-section p {
+            font-size: 1.2rem;
+            max-width: 650px;
+        }
+
+        /* SECTION WISATA */
+        section {
+            padding: 100px 80px;
+        }
+
+        section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            color: #0a4d68;
+        }
+
+        .destination-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card .content {
+            padding: 18px;
+        }
+
+        .card h3 { color: #0a4d68; margin-bottom: 8px; }
+        .card p { color: #555; font-size: 0.95rem; }
+
+        /* BUTTON KUNJUNGI */
+        .btn-card {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 10px 20px;
+            background: #0a4d68;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn-card:hover {
+            background: #ff6b6b;
+            transform: scale(1.05);
+        }
+
+        /* FOOTER MODERN (SAMA PERSIS SEPERTI HALAMAN SEBELUMNYA) */
+        .footer {
+            background: #0a4d68;
+            color: white;
+            padding: 60px 80px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+        }
+
+        .footer .col { flex: 1; min-width: 230px; }
+
+        .footer h1 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .footer h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+        }
+
+        .footer p { line-height: 1.7; }
+        .footer ul { list-style: none; padding: 0; }
+        .footer ul li { margin: 10px 0; }
+
+        .footer ul li a {
+            color: #d8ffff;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        .footer ul li a:hover {
+            color: #ff6b6b;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            background: #06384d;
+            text-align: center;
+            padding: 15px;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        /* RESPONSIVE */
+        @media(max-width: 768px){
+            header { padding: 15px 25px; }
+            .header-section { padding: 0 20px; text-align: center; align-items: center; }
+            .header-section h1 { font-size: 2.7rem; }
+            .header-section p { font-size: 1rem; }
+            section { padding: 60px 25px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tujuan.html">Tujuan Wisata</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="hubungi.html">Hubungi</a></li>
+        </ul>
+    </nav>
+</header>
+
+<!-- HERO -->
+<div class="header-section">
+    <h1>Destinasi Wisata</h1>
+    <p>Jelajahi berbagai tempat wisata terbaik yang ada di Kabupaten Langkat.</p>
+</div>
+
+<!-- LIST WISATA -->
+<section>
+    <h2>Tujuan Wisata Langkat</h2>
+
+    <div class="destination-grid">
+
+        <div class="card">
+            <img src="../img/destinasi1.jpg">
+            <div class="content">
+                <h3>Kolam Abadi</h3>
+                <p>Kolam alami tersembunyi dengan air jernih yang memukau.</p>
+                <a href="kolam-abadi.html" class="btn-card">Kunjungi</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../img/hol (1).jpg">
+            <div class="content">
+                <h3>Tangkahan</h3>
+                <p>Wisata alam dan gajah yang mempesona mata dan jiwa.</p>
+                <a href="tangkahan.html" class="btn-card">Kunjungi</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../img/bukit lawamng.jpg">
+            <div class="content">
+                <h3>Bukit Lawang</h3>
+                <p>Destinasi alam dengan sungai jernih dan suasana hutan tropis yang asri.</p>
+                <a href="bukit-lawang.html" class="btn-card">Kunjungi</a>
+            </div>
+        </div>
+
+        <div class="card">
+            <img src="../img/bekancan-river.jpg">
+            <div class="content">
+                <h3>Bekancan River</h3>
+                <p>Wisata Kapal Nuh Bekancan River Langkat.</p>
+                <a href="bekancan_river.html" class="btn-card">Kunjungi</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- FOOTER (SAMA PERSIS SEPERTI FOOTER LENGKAP) -->
+<footer class="footer">
+    <div class="col">
+        <h1>Wisata Langkat</h1>
+        <p>
+            Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
+            budaya, kuliner, dan petualangan di Kabupaten Langkat.
+        </p>
+    </div>
+
+    <div class="col">
+        <h3>Tentang</h3>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tujuan.html">Tujuan Wisata</a></li>
+            <li><a href="tentang.html">Tentang Kami</a></li>
+            <li><a href="hubungi.html">Kontak</a></li>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h3>Destinasi</h3>
+        <ul>
+            <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
+            <li><a href="tangkahan.html">Tangkahan</a></li>
+            <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
+            <li><a href="">Lainnya...</a></li>
+        </ul>
+    </div>
+
+    <div class="col">
+        <h3>Akses Cepat</h3>
+        <ul>
+            <li><a href="index.html">Beranda</a></li>
+            <li><a href="tujuan.html">Tujuan Wisata</a></li>
+        </ul>
+    </div>
+</footer>
+
+<div class="footer-bottom">
+    © 2025 Wisata Langkat. Semua Hak Dilindungi.
+</div>
+
+</body>
+</html>
