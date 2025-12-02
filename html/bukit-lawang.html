@@ -1,253 +1,254 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bukit Lawang - Wisata Alam</title>
 
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        color: #333;
+      }
 
-        a {
-            color: #555;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+      a {
+        color: #555;
+        text-decoration: none;
+        font-size: 0.9rem;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
 
-        /* HERO */
-        .hero-section {
-            position: relative;
-            background-image: url('../img/bukit\ lawamng.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 40px;
-            box-sizing: border-box;
-        }
+      /* HERO */
+      .hero-section {
+        position: relative;
+        background-image: url("../img/bukit\ lawamng.jpg");
+        background-size: cover;
+        background-position: center;
+        height: 500px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 40px;
+        box-sizing: border-box;
+      }
 
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            z-index: 1;
-        }
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.45);
+        z-index: 1;
+      }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
 
-        .hero-content h1 {
-            font-size: 52px;
-            margin: 0 0 15px 0;
-            font-weight: bold;
-        }
+      .hero-content h1 {
+        font-size: 52px;
+        margin: 0 0 15px 0;
+        font-weight: bold;
+      }
 
-        .hero-content p {
-            font-size: 18px;
-            margin: 0;
-            line-height: 1.5;
-        }
+      .hero-content p {
+        font-size: 18px;
+        margin: 0;
+        line-height: 1.5;
+      }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 0.85rem;
-            margin: 20px 40px 0 40px;
-            color: #777;
-        }
+      /* Breadcrumb */
+      .breadcrumb {
+        font-size: 0.85rem;
+        margin: 20px 40px 0 40px;
+        color: #777;
+      }
 
-        /* Content */
-        .content {
-            max-width: 800px;
-            margin: 20px auto 60px auto;
-            padding: 0 20px;
-        }
+      /* Content */
+      .content {
+        max-width: 800px;
+        margin: 20px auto 60px auto;
+        padding: 0 20px;
+      }
 
-        h2 {
-            color: #0b5ed7;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+      h2 {
+        color: #0b5ed7;
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
 
-        ul {
-            padding-left: 20px;
-        }
+      ul {
+        padding-left: 20px;
+      }
 
-        ul li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
+      ul li {
+        margin-bottom: 10px;
+        line-height: 1.5;
+      }
 
-        /* FOOTER */
-        .footer {
-            background: #0a4d68;
-            color: white;
-            padding: 60px 80px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-        }
+      /* FOOTER */
+      .footer {
+        background: #0a4d68;
+        color: white;
+        padding: 60px 80px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+      }
 
-        .footer .col {
-            flex: 1;
-            min-width: 230px;
-        }
+      .footer .col {
+        flex: 1;
+        min-width: 230px;
+      }
 
-        .footer h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+      .footer h1 {
+        font-size: 1.8rem;
+        margin-bottom: 15px;
+      }
 
-        .footer h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
+      .footer h3 {
+        font-size: 1.3rem;
+        margin-bottom: 15px;
+      }
 
-        .footer p {
-            line-height: 1.7;
-        }
+      .footer p {
+        line-height: 1.7;
+      }
 
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
 
-        .footer ul li {
-            margin: 10px 0;
-        }
+      .footer ul li {
+        margin: 10px 0;
+      }
 
-        .footer ul li a {
-            color: #d8ffff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+      .footer ul li a {
+        color: #d8ffff;
+        text-decoration: none;
+        transition: 0.3s;
+      }
 
-        .footer ul li a:hover {
-            color: #ff6b6b;
-            padding-left: 5px;
-        }
+      .footer ul li a:hover {
+        color: #ff6b6b;
+        padding-left: 5px;
+      }
 
-        .footer-bottom {
-            background: #06384d;
-            text-align: center;
-            padding: 15px;
-            color: white;
-            font-size: 0.9rem;
-        }
-
+      .footer-bottom {
+        background: #06384d;
+        text-align: center;
+        padding: 15px;
+        color: white;
+        font-size: 0.9rem;
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <!-- HERO -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>Bukit Lawang</h1>
-            <p>
-                Bukit Lawang adalah destinasi wisata alam terkenal di Kabupaten Langkat 
-                yang menawarkan petualangan seru di tengah hutan tropis serta kesempatan 
-                untuk melihat orangutan Sumatra secara langsung. Suasana alamnya yang 
-                tenang dan aliran sungai yang jernih menjadikan Bukit Lawang tujuan favorit 
-                wisatawan lokal maupun internasional.
-            </p>
-        </div>
+      <div class="hero-content">
+        <h1>Bukit Lawang</h1>
+        <p>
+          Bukit Lawang adalah destinasi wisata alam terkenal di Kabupaten
+          Langkat yang menawarkan petualangan seru di tengah hutan tropis serta
+          kesempatan untuk melihat orangutan Sumatra secara langsung. Suasana
+          alamnya yang tenang dan aliran sungai yang jernih menjadikan Bukit
+          Lawang tujuan favorit wisatawan lokal maupun internasional.
+        </p>
+      </div>
     </section>
 
     <!-- Breadcrumb -->
     <nav class="breadcrumb">
-        <a href="index.html">BERANDA</a> &gt; <a href="tujuan.html">WISATA ALAM</a> &gt; BUKIT LAWANG
+      <a href="index.html">BERANDA</a> &gt;
+      <a href="tujuan.html">WISATA ALAM</a> &gt; BUKIT LAWANG
     </nav>
 
     <!-- CONTENT -->
     <section class="content">
-        <h2>Aktivitas Seru di Bukit Lawang</h2>
-        <ul>
-            <li>Tracking hutan dan melihat orangutan Sumatra di habitat aslinya.</li>
-            <li>River tubing menyusuri Sungai Bahorok dengan ban karet.</li>
-            <li>Menyusuri goa, jembatan gantung, dan spot alam eksotis.</li>
-            <li>Menikmati suasana pedesaan yang damai di tengah hutan tropis.</li>
-            <li>Berfoto di tepi sungai dengan panorama tebing dan pepohonan.</li>
-            <li>Mengikuti paket trekking menuju Taman Nasional Gunung Leuser.</li>
-        </ul>
+      <h2>Aktivitas Seru di Bukit Lawang</h2>
+      <ul>
+        <li>
+          Tracking hutan dan melihat orangutan Sumatra di habitat aslinya.
+        </li>
+        <li>River tubing menyusuri Sungai Bahorok dengan ban karet.</li>
+        <li>Menyusuri goa, jembatan gantung, dan spot alam eksotis.</li>
+        <li>Menikmati suasana pedesaan yang damai di tengah hutan tropis.</li>
+        <li>Berfoto di tepi sungai dengan panorama tebing dan pepohonan.</li>
+        <li>Mengikuti paket trekking menuju Taman Nasional Gunung Leuser.</li>
+      </ul>
 
-        <h2>Fasilitas yang Tersedia</h2>
-        <ul>
-            <li>Camping ground dan penginapan eco-lodge.</li>
-            <li>Warung makanan, kafe, dan restoran lokal.</li>
-            <li>Guide resmi untuk trekking dan jungle tour.</li>
-            <li>Area parkir memadai dan aman.</li>
-            <li>Jembatan gantung dan spot foto instagramable.</li>
-        </ul>
+      <h2>Fasilitas yang Tersedia</h2>
+      <ul>
+        <li>Camping ground dan penginapan eco-lodge.</li>
+        <li>Warung makanan, kafe, dan restoran lokal.</li>
+        <li>Guide resmi untuk trekking dan jungle tour.</li>
+        <li>Area parkir memadai dan aman.</li>
+        <li>Jembatan gantung dan spot foto instagramable.</li>
+      </ul>
 
-        <h2>Tips Berkunjung ke Bukit Lawang</h2>
-        <ul>
-            <li>Pakai sepatu trekking yang nyaman karena medan cukup menanjak.</li>
-            <li>Gunakan jasa pemandu resmi untuk kegiatan tracking.</li>
-            <li>Bawa kamera atau smartphone dengan baterai penuh.</li>
-            <li>Hormati satwa liar dan jangan memberi makan orangutan.</li>
-            <li>Kunjungi saat musim kemarau agar jalur lebih aman.</li>
-        </ul>
+      <h2>Tips Berkunjung ke Bukit Lawang</h2>
+      <ul>
+        <li>Pakai sepatu trekking yang nyaman karena medan cukup menanjak.</li>
+        <li>Gunakan jasa pemandu resmi untuk kegiatan tracking.</li>
+        <li>Bawa kamera atau smartphone dengan baterai penuh.</li>
+        <li>Hormati satwa liar dan jangan memberi makan orangutan.</li>
+        <li>Kunjungi saat musim kemarau agar jalur lebih aman.</li>
+      </ul>
     </section>
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="col">
-            <h1>Wisata Langkat</h1>
-            <p>
-                Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
-                budaya, kuliner, dan petualangan di Kabupaten Langkat.
-            </p>
-        </div>
+      <div class="col">
+        <h1>Wisata Langkat</h1>
+        <p>
+          Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
+          budaya, kuliner, dan petualangan di Kabupaten Langkat.
+        </p>
+      </div>
 
-        <div class="col">
-            <h3>Tentang</h3>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="tujuan.html">Tujuan Wisata</a></li>
-                <li><a href="tentang.html">Tentang Kami</a></li>
-                <li><a href="hubungi.html">Kontak</a></li>
-            </ul>
-        </div>
+      <div class="col">
+        <h3>Tentang</h3>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tujuan.html">Tujuan Wisata</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="hubungi.html">Kontak</a></li>
+        </ul>
+      </div>
 
-        <div class="col">
-            <h3>Destinasi</h3>
-            <ul>
-                <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
-                <li><a href="tangkahan.html">Tangkahan</a></li>
-                <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
-                <li><a href="">Lainnya...</a></li>
-            </ul>
-        </div>
+      <div class="col">
+        <h3>Destinasi</h3>
+        <ul>
+          <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
+          <li><a href="tangkahan.html">Tangkahan</a></li>
+          <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
+          <li><a href="tujuan.html">Lainnya...</a></li>
+        </ul>
+      </div>
 
-        <div class="col">
-            <h3>Akses Cepat</h3>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="tujuan.html">Tujuan Wisata</a></li>
-            </ul>
-        </div>
+      <div class="col">
+        <h3>Akses Cepat</h3>
+        <ul>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tujuan.html">Tujuan Wisata</a></li>
+        </ul>
+      </div>
     </footer>
 
     <div class="footer-bottom">
-        © 2025 Wisata Langkat. Semua Hak Dilindungi.
+      © 2025 Wisata Langkat. Semua Hak Dilindungi.
     </div>
-
-</body>
+  </body>
 </html>
