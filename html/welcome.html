@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Selamat Datang - Wisata Langkat</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* Reset */
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden; /* Hilangkan scrollbar */
+            background-color: #000; /* Fallback jika video gagal */
+        }
+
+        /* 1. Video Background */
+        #bg-video {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1; /* Taruh di paling belakang */
+            object-fit: cover; /* Agar video full screen */
+            filter: brightness(0.6); /* Gelapkan video agar teks jelas */
+        }
+
+        /* 2. Konten Tengah */
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            color: white;
+            padding: 20px;
+            animation: fadeIn 2s ease-in-out; /* Animasi muncul perlahan */
+        }
+
+        .logo-intro {
+            width: 400px;
+            margin-bottom: 20px;
+            filter: drop-shadow(0 0 10px rgba(0,0,0,0.5));
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 50px;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        /* 3. Tombol Masuk */
+        .btn-enter {
+            display: inline-block;
+            padding: 15px 60px;
+            border: 2px solid #ff8c42; /* Warna Oranye Langkat */
+            background-color: #ff8c42;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: bold;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(255, 140, 66, 0.4);
+        }
+
+        .btn-enter:hover {
+            background-color: transparent;
+            color: #ff8c42;
+            transform: scale(1.1); /* Efek membesar */
+            box-shadow: 0 0 20px rgba(255, 140, 66, 0.8);
+        }
+
+        /* Animasi */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Responsive HP */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            p { font-size: 0.9rem; letter-spacing: 1px; }
+            .btn-enter { padding: 12px 40px; font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop id="bg-video">
+        <source src="../img/langkat_V.mp4" type="video/mp4">
+        Browser Anda tidak mendukung video HTML5.
+    </video>
+
+    <div class="content">
+        <img src="../img/logo.png" alt="Logo Wisata Langkat" class="logo-intro">
+        
+        <h1>WISATA LANGKAT</h1>
+        <p>Jelajahi Surga Tersembunyi Sumatera Utara</p>
+        
+        <a href="index.html" class="btn-enter">MASUK KE SINI</a>
+    </div>
+
+</body>
+</html>
