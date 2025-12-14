@@ -1,301 +1,684 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wisata Langkat - Beranda</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
 
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f4f4f4; color: #333; line-height: 1.6; }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+      body {
+        background: #f4f4f4;
+        color: #333;
+        line-height: 1.6;
+      }
 
-        /* HEADER */
+      /* ================= HEADER & NAVBAR ================= */
+      header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(8px);
+        padding: 15px 60px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+      }
+
+      nav.navbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+      }
+
+      .logo img {
+        width: 100px;
+        height: 75px;
+        object-fit: cover;
+      }
+
+      .logo span {
+        color: white;
+        font-size: 1.4rem;
+        font-weight: 700;
+      }
+
+      .nav-menu {
+        display: flex;
+        list-style: none;
+        gap: 35px;
+      }
+
+      .nav-menu li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .nav-menu li a:hover {
+        color: #ff6b6b;
+        transform: scale(1.1);
+      }
+
+      /* ================= HERO SECTION ================= */
+      #hero {
+        height: 100vh;
+        background: url("../img/hel.jpg") center/cover no-repeat;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        padding: 0 80px;
+        color: white;
+        text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.9);
+      }
+      #hero h1 {
+        font-size: 4rem;
+        font-weight: 700;
+        margin-bottom: 15px;
+        animation: fadeInDown 1s ease forwards;
+      }
+      #hero p {
+        font-size: 1.3rem;
+        max-width: 600px;
+        margin-bottom: 25px;
+        animation: fadeInUp 1s ease forwards;
+        animation-delay: 0.5s;
+        opacity: 0;
+      }
+
+      .search-box {
+        display: flex;
+        max-width: 650px;
+        width: 100%;
+        background: white;
+        border-radius: 50px;
+        overflow: hidden;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+      .search-box input {
+        flex: 1;
+        padding: 15px 20px;
+        border: none;
+        outline: none;
+        font-size: 16px;
+      }
+      .search-box button {
+        background: linear-gradient(90deg, #ff6b6b, #ff8787);
+        border: none;
+        padding: 0 30px;
+        color: white;
+        font-weight: 600;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+      .search-box button:hover {
+        transform: scale(1.05);
+      }
+
+      /* ================= DESTINASI SECTION ================= */
+      section {
+        padding: 100px 80px;
+      }
+
+      section:nth-of-type(2) {
+        background: linear-gradient(135deg, #d8f3ff, #bce7f0);
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 40px;
+        text-align: center;
+        color: #0a4d68;
+      }
+
+      .card-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 35px;
+      }
+
+      .card {
+        background: linear-gradient(145deg, #0b5e75, #0a4d68);
+        border-radius: 22px;
+        overflow: hidden;
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+        color: white;
+        transition: 0.35s ease;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .card:hover {
+        transform: translateY(-12px) scale(1.03);
+        box-shadow: 0 20px 35px rgba(0, 0, 0, 0.35);
+      }
+
+      .card img {
+        width: 100%;
+        height: 230px;
+        object-fit: cover;
+        filter: brightness(0.9);
+        transition: 0.35s ease;
+      }
+
+      .card:hover img {
+        transform: scale(1.08);
+        filter: brightness(1);
+      }
+
+      .card .content {
+        padding: 22px;
+      }
+      .card .content h3 {
+        font-size: 1.6rem;
+        margin-bottom: 12px;
+        color: #ffffff;
+      }
+      .card .content p {
+        font-size: 1rem;
+        color: #dffaff;
+      }
+
+      .btn-card {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 11px 22px;
+        background: #ff8c42;
+        color: white;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+        box-shadow: 0 4px 12px rgba(255, 140, 66, 0.4);
+      }
+      .btn-card:hover {
+        background: #ff6b08;
+        transform: scale(1.1);
+      }
+
+      /* ================= FEATURES SECTION (KEUNGGULAN) ================= */
+      .features-section {
+        padding: 80px 80px;
+        background: #ffffff;
+        text-align: center;
+      }
+
+      .features-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 40px;
+        margin-top: 50px;
+      }
+
+      .feature-item {
+        flex: 1;
+        min-width: 250px;
+        max-width: 350px;
+        padding: 30px;
+        border-radius: 15px;
+        transition: 0.3s;
+        border: 1px solid #a5bfb1;
+      }
+
+      .feature-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        border-color: #bce7f0;
+      }
+
+      .feature-icon {
+        font-size: 3rem;
+        color: #ff8c42;
+        margin-bottom: 20px;
+      }
+
+      .feature-item h3 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #0a4d68;
+      }
+
+      .feature-item p {
+        color: #666;
+        font-size: 0.95rem;
+      }
+
+      /* ================= TESTIMONIALS SECTION ================= */
+      .testimonial-section {
+        padding: 80px 80px;
+        background: #cff1f6;
+        text-align: center;
+      }
+
+      .testimonial-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 35px;
+        margin-top: 50px;
+      }
+
+      .testi-card {
+        background: rgb(248, 246, 246);
+        padding: 40px 30px;
+        border-radius: 20px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        max-width: 350px;
+        flex: 1;
+        transition: 0.3s;
+        position: relative;
+      }
+
+      .testi-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Foto Profil Bulat */
+      .testi-card img {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 20px;
+        border: 4px solid #bce7f0;
+      }
+
+      .testi-text {
+        font-style: italic;
+        color: #555;
+        margin-bottom: 20px;
+        font-size: 0.95rem;
+      }
+
+      .testi-name {
+        font-weight: 700;
+        color: #0a4d68;
+        font-size: 1.1rem;
+      }
+
+      .testi-role {
+        font-size: 0.85rem;
+        color: #888;
+        display: block;
+        margin-top: 5px;
+      }
+
+      .quote-icon {
+        color: #ff8c42;
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+      }
+
+      /* ================= FOOTER ================= */
+      .footer {
+        background: #0a4d68;
+        color: white;
+        padding: 60px 80px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+
+      .footer .col {
+        flex: 1;
+        min-width: 200px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .footer .col:first-child {
+        flex-basis: 40%;
+        min-width: 320px;
+      }
+
+      .footer-brand-wrapper {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .footer-logo {
+        width: 150px;
+        height: auto;
+        margin-right: 20px;
+      }
+
+      .footer h1 {
+        font-size: 2rem;
+        margin: 0;
+        line-height: 1.2;
+        font-weight: 700;
+      }
+
+      .footer h3 {
+        font-size: 1.3rem;
+        margin-bottom: 20px;
+        color: #ff8c42;
+      }
+
+      .footer p {
+        line-height: 1.8;
+        font-size: 1rem;
+        color: #e0f7fa;
+      }
+
+      .footer ul {
+        list-style: none;
+        padding: 0;
+      }
+      .footer ul li {
+        margin: 10px 0;
+      }
+      .footer ul li a {
+        color: #d8ffff;
+        text-decoration: none;
+        transition: 0.3s ease;
+        font-size: 1rem;
+      }
+      .footer ul li a:hover {
+        color: #ff6b6b;
+        padding-left: 6px;
+      }
+
+      .footer-bottom {
+        background: #06384d;
+        text-align: center;
+        padding: 15px;
+        color: white;
+        font-size: 0.9rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      /* ANIMASI */
+      @keyframes fadeInDown {
+        0% {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ================= RESPONSIVE ================= */
+      @media (max-width: 768px) {
         header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background: rgba(0,0,0,0.7);
-            backdrop-filter: blur(8px);
-            padding: 15px 60px;
-            z-index: 1000;
-            transition: all 0.3s ease;
+          padding: 15px 25px;
         }
-        nav ul { display: flex; list-style: none; gap: 35px; }
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
+        .logo span {
+          display: none;
         }
-        nav ul li a:hover {
-            color: #ff6b6b;
-            transform: scale(1.1);
-        }
-
-        /* HERO */
         #hero {
-            height: 100vh;
-            background: url('../img/hel.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 0 80px;
-            color: white;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
+          padding: 0 30px;
+          text-align: center;
+          align-items: center;
         }
         #hero h1 {
-            font-size: 4rem;
-            font-weight: 700;
-            margin-bottom: 15px;
-            animation: fadeInDown 1s ease forwards;
+          font-size: 3rem;
         }
         #hero p {
-            font-size: 1.3rem;
-            max-width: 600px;
-            margin-bottom: 25px;
-            animation: fadeInUp 1s ease forwards;
-            animation-delay: 0.5s;
-            opacity: 0;
+          max-width: 100%;
         }
 
-        /* SEARCH BOX */
-        .search-box {
-            display: flex;
-            max-width: 650px;
-            width: 100%;
-            background: white;
-            border-radius: 50px;
-            overflow: hidden;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        section {
+          padding: 80px 30px;
         }
-        .search-box input {
-            flex: 1;
-            padding: 15px 20px;
-            border: none;
-            outline: none;
-            font-size: 16px;
+        .features-section {
+          padding: 60px 30px;
         }
-        .search-box button {
-            background: linear-gradient(90deg, #ff6b6b, #ff8787);
-            border: none;
-            padding: 0 30px;
-            color: white;
-            font-weight: 600;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .search-box button:hover { transform: scale(1.05); }
-
-        section { padding: 100px 80px; }
-        h2 {
-            font-size: 2.5rem;
-            margin-bottom: 40px;
-            text-align: center;
-            color: #0a4d68;
+        .testimonial-section {
+          padding: 60px 30px;
         }
 
-        /* CARD */
-        .card-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            transition: 0.3s;
-        }
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0,0,0,0.2);
-        }
-        .card img {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-            transition: 0.3s;
-        }
-        .card:hover img { transform: scale(1.05); }
-        .card .content { padding: 20px; }
-        .card .content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #0a4d68;
-        }
-        .card .content p {
-            font-size: 0.95rem;
-            color: #555;
-        }
-
-        .btn-card {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #0a4d68;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: 0.3s;
-        }
-        .btn-card:hover {
-            background: #ff6b6b;
-            transform: scale(1.05);
-        }
-
-        /* FOOTER */
         .footer {
-            background: #0a4d68;
-            color: white;
-            padding: 60px 80px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
+          padding: 40px 30px;
         }
-        .footer .col { flex: 1; min-width: 230px; }
-        .footer h1 { font-size: 1.9rem; margin-bottom: 15px; }
-        .footer h3 { font-size: 1.3rem; margin-bottom: 15px; }
-        .footer p { line-height: 1.7; }
-        .footer ul { list-style: none; padding: 0; }
-        .footer ul li { margin: 10px 0; }
-        .footer ul li a {
-            color: #d8ffff;
-            text-decoration: none;
-            transition: 0.3s ease;
+        .footer .col:first-child {
+          flex-basis: 100%;
+          min-width: 200px;
         }
-        .footer ul li a:hover {
-            color: #ff6b6b;
-            padding-left: 6px;
-        }
-        .footer-bottom {
-            background: #06384d;
-            text-align: center;
-            padding: 15px;
-            color: white;
-            font-size: 0.9rem;
-        }
-
-        /* ANIMASI */
-        @keyframes fadeInDown {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            0% { opacity: 0; transform: translateY(30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        /* RESPONSIVE */
-        @media(max-width: 768px){
-            header { padding: 15px 30px; }
-            #hero { padding: 0 30px; text-align: center; align-items: center; }
-            #hero h1 { font-size: 3rem; }
-            #hero p { max-width: 100%; }
-            section { padding: 80px 30px; }
-            .footer { padding: 40px 30px; }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <div class="logo">
+          <img src="../img/logo.png" alt="Logo Wisata Langkat" />
+          <span>Wisata Langkat</span>
+        </div>
 
-<header>
-    <nav>
-        <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="tujuan.html">Tujuan Wisata</a></li>
-            <li><a href="tentang.html">Tentang Kami</a></li>
-            <li><a href="hubungi.html">Hubungi</a></li>
+        <ul class="nav-menu">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tujuan.html">Tujuan Wisata</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="hubungi.html">Hubungi</a></li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
 
-<section id="hero">
-    <h1>Eksplor Langkat</h1>
-    <p>Temukan destinasi alam, budaya, dan petualangan terbaik di Kabupaten Langkat.</p>
+    <section id="hero">
+      <h1>Eksplor Langkat</h1>
+      <p>
+        Temukan destinasi alam, budaya, dan petualangan terbaik di Kabupaten
+        Langkat.
+      </p>
 
-    <div class="search-box">
-        <input type="text" placeholder="Cari tempat wisata...">
+      <div class="search-box">
+        <input type="text" placeholder="Cari tempat wisata..." />
         <button>Cari</button>
-    </div>
-</section>
+      </div>
+    </section>
 
-<section>
-    <h2>Destinasi Populer</h2>
-    <div class="card-container">
+    <section>
+      <h2>Destinasi Populer</h2>
+      <div class="card-container">
         <div class="card">
-            <img src="../img/destinasi1.jpg" alt="">
-            <div class="content">
-                <h3>Kolam Abadi</h3>
-                <p>Kolam alami tersembunyi dengan kejernihan air yang memukau.</p>
-                <a href="kolam-abadi.html" class="btn-card">Kunjungi</a>
-            </div>
+          <img src="../img/destinasi1.jpg" alt="Kolam Abadi" />
+          <div class="content">
+            <h3>Kolam Abadi</h3>
+            <p>Kolam alami tersembunyi dengan kejernihan air yang memukau.</p>
+            <a href="kolam-abadi.html" class="btn-card">Kunjungi</a>
+          </div>
         </div>
-        <div class="card">
-            <img src="../img/hol (1).jpg" alt="">
-            <div class="content">
-                <h3>Tangkahan</h3>
-                <p>Wisata alam dan gajah yang mempesona mata dan jiwa.</p>
-                <a href="tangkahan.html" class="btn-card">Kunjungi</a>
-            </div>
-        </div>
-        <div class="card">
-            <img src="../img/bukit lawamng.jpg" alt="">
-            <div class="content">
-                <h3>Bukit Lawang</h3>
-                <p>Destinasi alam dengan sungai jernih dan suasana hutan tropis yang asri.</p>
-                <a href="bukit-lawang.html" class="btn-card">Kunjungi</a>
-            </div>
-        </div>
-    </div>
-</section>
 
-<footer class="footer">
-    <div class="col">
-        <h1>Wisata Langkat</h1>
+        <div class="card">
+          <img src="../img/hol (1).jpg" alt="Tangkahan" />
+          <div class="content">
+            <h3>Tangkahan</h3>
+            <p>Wisata alam dan gajah yang mempesona mata dan jiwa.</p>
+            <a href="tangkahan.html" class="btn-card">Kunjungi</a>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="../img/bukit lawamng.jpg" alt="Bukit Lawang" />
+          <div class="content">
+            <h3>Bukit Lawang</h3>
+            <p>
+              Destinasi alam dengan sungai jernih dan suasana hutan tropis yang
+              asri.
+            </p>
+            <a href="bukit-lawang.html" class="btn-card">Kunjungi</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="features-section">
+      <h2>Kenapa Mengunjungi Langkat?</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: #666">
+        Kabupaten Langkat menawarkan pengalaman wisata yang lengkap, mulai dari
+        petualangan alam hingga ketenangan jiwa.
+      </p>
+
+      <div class="features-grid">
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-tree"></i></div>
+          <h3>Alam Tropis Asri</h3>
+          <p>
+            Nikmati udara segar hutan hujan tropis Leuser yang masih terjaga dan
+            jauh dari polusi kota.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-water"></i></div>
+          <h3>Air Sebening Kaca</h3>
+          <p>
+            Rasakan kesegaran berenang di sungai dan kolam alami dengan air yang
+            jernih berwarna kebiruan.
+          </p>
+        </div>
+
+        <div class="feature-item">
+          <div class="feature-icon"><i class="fas fa-camera"></i></div>
+          <h3>Spot Instagramable</h3>
+          <p>
+            Abadikan momen terbaikmu dengan latar belakang pemandangan alam yang
+            epik dan memukau.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="testimonial-section">
+      <h2>Apa Kata Mereka?</h2>
+      <p style="max-width: 600px; margin: 0 auto; color: #666">
+        Pengalaman tak terlupakan dari para wisatawan yang telah berkunjung.
+      </p>
+
+      <div class="testimonial-grid">
+        <div class="testi-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <br />
+          <img src="../img/kil.jpeg" alt="Foto Budi" />
+          <p class="testi-text">
+            "Air di Kolam Abadi benar-benar jernih seperti kaca! Pengalaman
+            berenang terbaik yang pernah saya rasakan. Sangat worth it!"
+          </p>
+          <div class="testi-name">Jannes</div>
+          <span class="testi-role">Wisatawan Jakarta</span>
+        </div>
+
+        <div class="testi-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <br />
+          <img
+            src="../img/liplip.jpeg"
+            alt="Foto Sarah"
+          />
+          <p class="testi-text">
+            "Melihat orangutan langsung di Bukit Lawang adalah pengalaman magis.
+            Udaranya sejuk dan pemandunya sangat ramah."
+          </p>
+          <div class="testi-name">Marvel</div>
+          <span class="testi-role">Wisatawan Surabaya</span>
+        </div>
+
+        <div class="testi-card">
+          <i class="fas fa-quote-left quote-icon"></i>
+          <br />
+          <img
+            src="../img/loklok.jpeg"
+            alt="Foto Andi"
+          />
+          <p class="testi-text">
+            "Tangkahan sangat tenang. Memandikan gajah di sungai menjadi
+            kenangan liburan keluarga yang paling berkesan."
+          </p>
+          <div class="testi-name">Gilbert</div>
+          <span class="testi-role">Wisatawan Medan</span>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="col">
+        <div class="footer-brand-wrapper">
+          <img
+            src="../img/logo.png"
+            alt="Logo Wisata Langkat"
+            class="footer-logo"
+          />
+          <h1>Wisata Langkat</h1>
+        </div>
+
         <p>
-            Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
-            budaya, kuliner, dan petualangan di Kabupaten Langkat.
+          Platform informasi pariwisata terbaik untuk <br />menemukan destinasi
+          alam, budaya, kuliner, dan <br />petualangan di Kabupaten Langkat.
         </p>
-    </div>
+      </div>
 
-    <div class="col">
+      <div class="col">
         <h3>Tentang</h3>
         <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="tujuan.html">Tujuan Wisata</a></li>
-            <li><a href="tentang.html">Tentang Kami</a></li>
-            <li><a href="hubungi.html">Kontak</a></li>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tujuan.html">Tujuan Wisata</a></li>
+          <li><a href="tentang.html">Tentang Kami</a></li>
+          <li><a href="hubungi.html">Kontak</a></li>
         </ul>
-    </div>
+      </div>
 
-    <div class="col">
+      <div class="col">
         <h3>Destinasi</h3>
         <ul>
-            <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
-            <li><a href="tangkahan.html">Tangkahan</a></li>
-            <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
-            <li><a href="tujuan.html">Lainnya...</a></li>
+          <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
+          <li><a href="tangkahan.html">Tangkahan</a></li>
+          <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
+          <li><a href="tujuan.html">Lainnya...</a></li>
         </ul>
-    </div>
+      </div>
 
-    <div class="col">
+      <div class="col">
         <h3>Akses Cepat</h3>
         <ul>
-            <li><a href="index.html">Beranda</a></li>
-            <li><a href="tujuan.html">Tujuan Wisata</a></li>
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="tujuan.html">Tujuan Wisata</a></li>
         </ul>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      © 2025 Wisata Langkat. Semua Hak Dilindungi.
     </div>
-</footer>
-
-<div class="footer-bottom">
-    © 2025 Wisata Langkat. Semua Hak Dilindungi.
-</div>
-
-</body>
+  </body>
 </html>

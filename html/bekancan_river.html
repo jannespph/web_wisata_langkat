@@ -3,34 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Kapal Nuh - Bekancan River, Langkat</title>
+    <title>Kapal Nuh - Bekancang River, Langkat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
     <style>
-      body,
-      html {
+      /* --- GLOBAL SETTINGS --- */
+      body, html {
         margin: 0;
         padding: 0;
-        font-family: Arial, sans-serif;
-        background: #f9f9f9;
+        font-family: 'Lato', sans-serif; 
+        background: #f2f5f8; 
         color: #333;
+        line-height: 1.6;
       }
 
       a {
         color: #555;
         text-decoration: none;
         font-size: 0.9rem;
+        transition: color 0.3s;
       }
       a:hover {
-        text-decoration: underline;
+        color: #0b5ed7;
       }
 
-      /* HERO */
+      /* HERO SECTION (TIDAK DIUBAH) */
       .hero-section {
         position: relative;
         background-image: url("../img/bekancan-river.jpg");
         background-size: cover;
         background-position: center;
-        height: 500px;
+        height: 650px;
         color: white;
         display: flex;
         flex-direction: column;
@@ -54,6 +60,7 @@
       }
 
       .hero-content h1 {
+        font-family: 'Playfair Display', serif;
         font-size: 52px;
         margin: 0 0 15px 0;
         font-weight: bold;
@@ -65,97 +72,223 @@
         line-height: 1.5;
       }
 
-      /* Breadcrumb */
+      /* BREADCRUMB */
       .breadcrumb {
-        font-size: 0.85rem;
-        margin: 20px 40px 0 40px;
+        font-size: 0.8rem;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+        max-width: 800px;
         color: #777;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: left;
       }
 
-      /* Content */
+      /* CONTENT (CARD STYLE) */
       .content {
         max-width: 800px;
-        margin: 20px auto 60px auto;
+        margin: 20px auto 40px auto;
         padding: 0 20px;
       }
 
       h2 {
-        color: #0b5ed7;
-        margin-top: 40px;
-        margin-bottom: 15px;
+        font-family: 'Playfair Display', serif;
+        color: #0a4d68;
+        margin-top: 50px;
+        margin-bottom: 25px;
         font-weight: 700;
+        font-size: 2rem;
+        position: relative;
+        display: inline-block;
       }
 
-      ul {
-        padding-left: 20px;
+      h2::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: #c5a059;
+          margin-top: 8px;
       }
 
-      ul li {
-        margin-bottom: 10px;
-        line-height: 1.5;
-      }
-
-      /* FOOTER */
-      .footer {
-        background: #0a4d68;
-        color: white;
-        padding: 60px 80px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        justify-content: space-between;
-      }
-
-      .footer .col {
-        flex: 1;
-        min-width: 230px;
-      }
-
-      .footer h1 {
-        font-size: 1.8rem;
-        margin-bottom: 15px;
-      }
-
-      .footer h3 {
-        font-size: 1.3rem;
-        margin-bottom: 15px;
-      }
-
-      .footer p {
-        line-height: 1.7;
-      }
-
-      .footer ul {
+      .content ul {
+        padding-left: 0;
         list-style: none;
-        padding: 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
       }
 
-      .footer ul li {
-        margin: 10px 0;
+      .content ul li {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        transition: transform 0.3s ease;
       }
 
-      .footer ul li a {
-        color: #d8ffff;
-        text-decoration: none;
+      .content ul li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      }
+
+      .content ul li::before {
+        content: "★"; 
+        color: #c5a059;
+        font-size: 1.2rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
+
+      /* --- BAGIAN PETA --- */
+      .location-section {
+        max-width: 800px;
+        margin: 0 auto 80px auto;
+        padding: 0 20px;
+      }
+
+      .map-card {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      }
+
+      .map-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-top: 25px;
+        background: #eee;
+      }
+
+      .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      .btn-map {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 35px;
+        background-color: #0a4d68;
+        color: white !important;
+        border-radius: 50px;
+        font-weight: bold;
         transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
       }
 
+      .btn-map:hover {
+        background-color: #0b5ed7;
+        transform: translateY(-2px);
+      }
+
+      /* ============================
+         FOOTER (UPDATED SESUAI BERANDA)
+      ============================= */
+      .footer {
+          background: #0a4d68;
+          color: white;
+          padding: 60px 80px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          justify-content: space-between;
+          align-items: flex-start; 
+          font-family: 'Poppins', sans-serif; /* Mengikuti font footer beranda */
+      }
+
+      .footer .col { 
+          flex: 1; 
+          min-width: 200px;
+          display: flex;
+          flex-direction: column;
+      }
+
+      /* Kolom pertama lebih lebar untuk Logo + Teks */
+      .footer .col:first-child {
+          flex-basis: 40%; 
+          min-width: 320px;
+      }
+
+      /* Wrapper Logo & Judul */
+      .footer-brand-wrapper {
+          display: flex;
+          align-items: center; 
+          margin-bottom: 15px; 
+      }
+
+      .footer-logo {
+          width: 150px;       
+          height: auto;
+          margin-right: 20px; 
+      }
+
+      .footer h1 { 
+          font-family: 'Poppins', sans-serif;
+          font-size: 2rem;
+          margin: 0;
+          line-height: 1.2;
+          font-weight: 700;
+          margin-bottom: 0 !important;
+      }
+      
+      .footer h3 { font-family: 'Poppins', sans-serif; font-size: 1.3rem; margin-bottom: 20px; color: #ff8c42; }
+
+      .footer p { 
+          line-height: 1.8; 
+          font-size: 1rem; 
+          color: #e0f7fa; 
+      }
+
+      .footer ul { list-style: none; padding: 0; margin: 0; display: block; }
+      .footer ul li { margin: 10px 0; background: none; padding: 0; box-shadow: none; display: block; }
+      .footer ul li::before { content: none; } /* Reset bullet bintang di footer */
+      
+      .footer ul li a {
+          color: #d8ffff;
+          text-decoration: none;
+          transition: 0.3s ease;
+          font-size: 1rem;
+      }
       .footer ul li a:hover {
-        color: #ff6b6b;
-        padding-left: 5px;
+          color: #ff6b6b;
+          padding-left: 6px;
       }
 
       .footer-bottom {
-        background: #06384d;
-        text-align: center;
-        padding: 15px;
-        color: white;
-        font-size: 0.9rem;
+          background: #06384d;
+          text-align: center;
+          padding: 15px;
+          color: white;
+          font-size: 0.9rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          font-family: 'Poppins', sans-serif;
+      }
+
+      /* Responsive Fix */
+      @media (max-width: 768px) {
+        .hero-section { padding-left: 20px; height: 400px; }
+        .hero-content h1 { font-size: 36px; }
+        
+        /* Footer Responsive */
+        .footer { padding: 40px 30px; }
+        .footer .col:first-child { flex-basis: 100%; min-width: 200px; }
       }
     </style>
   </head>
   <body>
-    <!-- HERO -->
     <section class="hero-section">
       <div class="hero-content">
         <h1>Kapal Nuh</h1>
@@ -168,13 +301,11 @@
       </div>
     </section>
 
-    <!-- Breadcrumb -->
     <nav class="breadcrumb">
-      <a href="index.html">BERANDA</a> &gt;
-      <a href="tujuan.html">WISATA ALAM</a> &gt; KAPAL NUH
+      <a href="index.html">Beranda</a> /
+      <a href="tujuan.html">Wisata Alam</a> / Kapal Nuh
     </nav>
 
-    <!-- CONTENT -->
     <section class="content">
       <h2>Aktivitas di Kapal Nuh Bekancan River</h2>
       <ul>
@@ -204,43 +335,66 @@
       </ul>
     </section>
 
-    <!-- FOOTER -->
+    <section class="location-section">
+        <div class="map-card">
+            <h2 style="margin-top:0;">Lokasi & Peta</h2>
+            <p>Kapal Nuh berlokasi di Bekancang River, Desa Telagah, Kec. Sei Bingai, Kabupaten Langkat.</p>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://maps.google.com/maps?q=Bekancan+River+Langkat&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            
+            <a href="https://www.google.com/maps/place/Bekancan+River+117/@3.3172,98.412016,13949m/data=!3m1!1e3!4m14!1m7!3m6!1s0x3030e1ae6b4b861f:0x97736f32d58f2652!2sBekancan+River+117!8m2!3d3.3172002!4d98.412016!16s%2Fg%2F11h1pj5j41!3m5!1s0x3030e1ae6b4b861f:0x97736f32d58f2652!8m2!3d3.3172002!4d98.412016!16s%2Fg%2F11h1pj5j41?hl=en-US&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-map">
+                Buka di Google Maps
+            </a>
+        </div>
+    </section>
+
     <footer class="footer">
-      <div class="col">
-        <h1>Wisata Langkat</h1>
-        <p>
-          Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
-          budaya, kuliner, dan petualangan di Kabupaten Langkat.
-        </p>
-      </div>
+        <div class="col">
+            <div class="footer-brand-wrapper">
+                <img src="../img/logo.png" alt="Logo Wisata Langkat" class="footer-logo">
+                <h1>Wisata Langkat</h1>
+            </div>
+            
+            <p>
+                Platform informasi pariwisata terbaik untuk <br>menemukan destinasi alam,
+                budaya, kuliner, dan <br>petualangan di Kabupaten Langkat.
+            </p>
+        </div>
 
-      <div class="col">
-        <h3>Tentang</h3>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="tujuan.html">Tujuan Wisata</a></li>
-          <li><a href="tentang.html">Tentang Kami</a></li>
-          <li><a href="hubungi.html">Kontak</a></li>
-        </ul>
-      </div>
+        <div class="col">
+            <h3>Tentang</h3>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tujuan.html">Tujuan Wisata</a></li>
+                <li><a href="tentang.html">Tentang Kami</a></li>
+                <li><a href="hubungi.html">Kontak</a></li>
+            </ul>
+        </div>
 
-      <div class="col">
-        <h3>Destinasi</h3>
-        <ul>
-          <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
-          <li><a href="tangkahan.html">Tangkahan</a></li>
-          <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
-          <li><a href="tujuan.html">Lainnya...</a></li>
-        </ul>
-      </div>
+        <div class="col">
+            <h3>Destinasi</h3>
+            <ul>
+                <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
+                <li><a href="tangkahan.html">Tangkahan</a></li>
+                <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
+                <li><a href="tujuan.html">Lainnya...</a></li>
+            </ul>
+        </div>
 
-      <div class="col">
-        <h3>Akses Cepat</h3>
-        <ul>
-          <li><a href="index.html">Beranda</a></li>
-          <li><a href="tujuan.html">Tujuan Wisata</a></li>
-        </ul>
-      </div>
+        <div class="col">
+            <h3>Akses Cepat</h3>
+            <ul>
+                <li><a href="index.html">Beranda</a></li>
+                <li><a href="tujuan.html">Tujuan Wisata</a></li>
+            </ul>
+        </div>
     </footer>
 
     <div class="footer-bottom">

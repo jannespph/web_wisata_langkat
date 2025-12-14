@@ -5,15 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tujuan Wisata - Langkat</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
     <style>
         /* RESET */
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
-        body { background: #f4f4f4; color: #333; }
+        body { background: #eef9ff; color: #333; }
 
-        /* NAVBAR MODERN */
+        /* ============================
+           NAVBAR
+        ============================= */
         header {
             position: fixed;
             top: 0; left: 0; width: 100%;
@@ -21,125 +22,145 @@
             backdrop-filter: blur(8px);
             padding: 15px 60px;
             z-index: 1000;
-            transition: 0.3s;
+            transition: .3s ease;
         }
 
-        nav ul {
-            list-style: none;
+        nav.navbar {
             display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        /* Style Logo */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo img {
+            width: 100px;
+            height: 75px;
+            object-fit: cover;
+        }
+
+        .logo span {
+            color: white;
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        /* Style Menu */
+        .nav-menu {
+            display: flex;
+            list-style: none;
             gap: 35px;
         }
 
-        nav ul li a {
+        .nav-menu li a {
             color: white;
-            text-decoration: none;
             font-weight: 600;
-            transition: 0.3s;
+            text-decoration: none;
+            transition: .3s;
         }
 
-        nav ul li a:hover {
+        .nav-menu li a:hover {
             color: #ff6b6b;
             transform: scale(1.1);
         }
 
-        /* HERO SECTION */
+        /* ============================
+           HERO SECTION
+        ============================= */
         .header-section {
-            height: 70vh;
-            width: 100%;
+            height: 100vh;
             background: url('../img/po.jpg') center/cover no-repeat;
-            display: flex;
-            flex-direction: column;
+            display: flex; flex-direction: column;
             justify-content: center;
             padding-left: 80px;
             color: white;
-            text-shadow: 1px 1px 6px rgba(0,0,0,0.9);
             position: relative;
+            text-shadow: 1px 1px 8px black;
         }
-
         .header-section::before {
             content: "";
             position: absolute;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            inset: 0;
             background: rgba(0,0,0,0.45);
-            z-index: 1;
         }
-
         .header-section > * { position: relative; z-index: 2; }
+        .header-section h1 { font-size: 3.7rem; margin-bottom: 10px; }
+        .header-section p { font-size: 1.2rem; max-width: 650px; }
 
-        .header-section h1 {
-            font-size: 3.6rem;
-            margin-bottom: 10px;
-        }
-
-        .header-section p {
-            font-size: 1.2rem;
-            max-width: 650px;
-        }
-
-        /* SECTION WISATA */
+        /* ============================
+           SECTION DESTINASI
+        ============================= */
         section {
             padding: 100px 80px;
+            background: linear-gradient(135deg, #d4f1ff, #bde7f2);
         }
-
         section h2 {
+            font-size: 2.7rem;
             text-align: center;
-            font-size: 2.5rem;
             margin-bottom: 40px;
             color: #0a4d68;
         }
 
         .destination-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            gap: 35px;
         }
 
+        /* CARD STYLE */
         .card {
-            background: white;
-            border-radius: 18px;
+            background: linear-gradient(145deg, #0b5e75, #0a4d68);
+            border-radius: 22px;
             overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: 0.3s;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.25);
+            color: white;
+            transition: .35s;
+            border: 1px solid rgba(255,255,255,0.18);
         }
-
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 18px 35px rgba(0,0,0,0.3);
         }
-
         .card img {
-            width: 100%;
-            height: 180px;
+            width: 100%; height: 210px;
             object-fit: cover;
+            filter: brightness(0.9);
+            transition: .35s;
+        }
+        .card:hover img {
+            transform: scale(1.08);
+            filter: brightness(1);
         }
 
-        .card .content {
-            padding: 18px;
-        }
+        .card .content { padding: 22px; }
+        .card h3 { font-size: 1.5rem; margin-bottom: 10px; }
+        .card p { color: #dffaff; }
 
-        .card h3 { color: #0a4d68; margin-bottom: 8px; }
-        .card p { color: #555; font-size: 0.95rem; }
-
-        /* BUTTON KUNJUNGI */
         .btn-card {
             display: inline-block;
-            margin-top: 12px;
-            padding: 10px 20px;
-            background: #0a4d68;
+            margin-top: 15px;
+            padding: 12px 22px;
+            background: #ff8c42;
+            border-radius: 12px;
             color: white;
             text-decoration: none;
-            border-radius: 10px;
             font-weight: 600;
-            transition: 0.3s;
+            transition: .3s;
+            box-shadow: 0 4px 12px rgba(255,140,66,0.4);
         }
-
         .btn-card:hover {
-            background: #ff6b6b;
-            transform: scale(1.05);
+            background: #ff6b08;
+            transform: scale(1.1);
         }
 
-        /* FOOTER MODERN (SAMA PERSIS SEPERTI HALAMAN SEBELUMNYA) */
+        /* ============================
+           FOOTER (UPDATED SESUAI BERANDA)
+        ============================= */
         .footer {
             background: #0a4d68;
             color: white;
@@ -148,33 +169,62 @@
             flex-wrap: wrap;
             gap: 40px;
             justify-content: space-between;
+            align-items: flex-start; /* Penting agar rata atas */
         }
 
-        .footer .col { flex: 1; min-width: 230px; }
-
-        .footer h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
+        .footer .col { 
+            flex: 1; 
+            min-width: 200px;
+            display: flex;
+            flex-direction: column;
         }
 
-        .footer h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
+        /* Kolom pertama lebih lebar untuk Logo + Teks */
+        .footer .col:first-child {
+            flex-basis: 40%; 
+            min-width: 320px;
         }
 
-        .footer p { line-height: 1.7; }
+        /* Wrapper Logo & Judul */
+        .footer-brand-wrapper {
+            display: flex;
+            align-items: center; 
+            margin-bottom: 15px; 
+        }
+
+        .footer-logo {
+            width: 150px;       
+            height: auto;
+            margin-right: 20px; 
+        }
+
+        .footer h1 { 
+            font-size: 2rem;
+            margin: 0;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 0 !important; /* Reset margin h1 bawaan */
+        }
+        
+        .footer h3 { font-size: 1.3rem; margin-bottom: 20px; color: #ff8c42; }
+
+        .footer p { 
+            line-height: 1.8; 
+            font-size: 1rem; 
+            color: #e0f7fa; 
+        }
+
         .footer ul { list-style: none; padding: 0; }
         .footer ul li { margin: 10px 0; }
-
         .footer ul li a {
             color: #d8ffff;
             text-decoration: none;
-            transition: 0.3s;
+            transition: 0.3s ease;
+            font-size: 1rem;
         }
-
         .footer ul li a:hover {
             color: #ff6b6b;
-            padding-left: 5px;
+            padding-left: 6px;
         }
 
         .footer-bottom {
@@ -183,23 +233,38 @@
             padding: 15px;
             color: white;
             font-size: 0.9rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
         }
 
-        /* RESPONSIVE */
+        /* ============================
+           RESPONSIVE
+        ============================= */
         @media(max-width: 768px){
             header { padding: 15px 25px; }
-            .header-section { padding: 0 20px; text-align: center; align-items: center; }
-            .header-section h1 { font-size: 2.7rem; }
-            .header-section p { font-size: 1rem; }
+            
+            /* Sembunyikan teks logo di HP agar tidak berantakan */
+            .logo span { display: none; }
+            
+            .header-section { text-align: center; padding-left: 0; align-items: center; }
+            .header-section h1 { font-size: 2.8rem; }
             section { padding: 60px 25px; }
+            
+            /* Footer Responsive */
+            .footer { padding: 40px 30px; }
+            .footer .col:first-child { flex-basis: 100%; min-width: 200px; }
         }
     </style>
 </head>
 <body>
 
 <header>
-    <nav>
-        <ul>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="../img/logo.png" alt="Logo Wisata Langkat">
+            <span>Wisata Langkat</span>
+        </div>
+
+        <ul class="nav-menu">
             <li><a href="index.html">Beranda</a></li>
             <li><a href="tujuan.html">Tujuan Wisata</a></li>
             <li><a href="tentang.html">Tentang Kami</a></li>
@@ -208,29 +273,27 @@
     </nav>
 </header>
 
-<!-- HERO -->
 <div class="header-section">
     <h1>Destinasi Wisata</h1>
     <p>Jelajahi berbagai tempat wisata terbaik yang ada di Kabupaten Langkat.</p>
 </div>
 
-<!-- LIST WISATA -->
 <section>
     <h2>Tujuan Wisata Langkat</h2>
 
     <div class="destination-grid">
 
         <div class="card">
-            <img src="../img/destinasi1.jpg">
+            <img src="../img/destinasi1.jpg" alt="Kolam Abadi">
             <div class="content">
                 <h3>Kolam Abadi</h3>
-                <p>Kolam alami tersembunyi dengan air jernih yang memukau.</p>
+                <p>Kolam alami tersembunyi dengan air yang jernih.</p>
                 <a href="kolam-abadi.html" class="btn-card">Kunjungi</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="../img/hol (1).jpg">
+            <img src="../img/hol (1).jpg" alt="Tangkahan">
             <div class="content">
                 <h3>Tangkahan</h3>
                 <p>Wisata alam dan gajah yang mempesona mata dan jiwa.</p>
@@ -239,16 +302,16 @@
         </div>
 
         <div class="card">
-            <img src="../img/bukit lawamng.jpg">
+            <img src="../img/bukit lawamng.jpg" alt="Bukit Lawang">
             <div class="content">
                 <h3>Bukit Lawang</h3>
-                <p>Destinasi alam dengan sungai jernih dan suasana hutan tropis yang asri.</p>
+                <p>Destinasi alam dengan sungai jernih dan suasana hutan tropis.</p>
                 <a href="bukit-lawang.html" class="btn-card">Kunjungi</a>
             </div>
         </div>
 
         <div class="card">
-            <img src="../img/bekancan-river.jpg">
+            <img src="../img/bekancan-river.jpg" alt="Bekancan River">
             <div class="content">
                 <h3>Bekancan River</h3>
                 <p>Wisata Kapal Nuh Bekancan River Langkat.</p>
@@ -259,13 +322,16 @@
     </div>
 </section>
 
-<!-- FOOTER (SAMA PERSIS SEPERTI FOOTER LENGKAP) -->
 <footer class="footer">
     <div class="col">
-        <h1>Wisata Langkat</h1>
+        <div class="footer-brand-wrapper">
+            <img src="../img/logo.png" alt="Logo Wisata Langkat" class="footer-logo">
+            <h1>Wisata Langkat</h1>
+        </div>
+        
         <p>
-            Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
-            budaya, kuliner, dan petualangan di Kabupaten Langkat.
+            Platform informasi pariwisata terbaik untuk <br>menemukan destinasi alam,
+            budaya, kuliner, dan <br>petualangan di Kabupaten Langkat.
         </p>
     </div>
 
@@ -285,7 +351,7 @@
             <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
             <li><a href="tangkahan.html">Tangkahan</a></li>
             <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
-            <li><a href="">Lainnya...</a></li>
+            <li><a href="tujuan.html">Lainnya...</a></li>
         </ul>
     </div>
 

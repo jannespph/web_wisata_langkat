@@ -1,216 +1,374 @@
 <!DOCTYPE html>
 <html lang="id">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Tangkahan - Wisata Alam</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #f9f9f9;
-            color: #333;
-        }
+      /* --- GLOBAL SETTINGS --- */
+      body, html {
+        margin: 0;
+        padding: 0;
+        font-family: 'Lato', sans-serif; 
+        background: #f2f5f8; 
+        color: #333;
+        line-height: 1.6;
+      }
 
-        a {
-            color: #555;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
+      a {
+        color: #555;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.3s;
+      }
+      a:hover {
+        color: #0b5ed7;
+      }
 
-        /* HERO */
-        .hero-section {
-            position: relative;
-            background-image: url('../img/hol\ \(1\).jpg    ');
-            background-size: cover;
-            background-position: center;
-            height: 500px;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 40px;
-            box-sizing: border-box;
-        }
+      /* HERO SECTION (TIDAK DIUBAH) */
+      .hero-section {
+        position: relative;
+        background-image: url('../img/hol (1).jpg'); 
+        background-size: cover;
+        background-position: center;
+        height: 650px;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 40px;
+        box-sizing: border-box;
+      }
 
-        .hero-section::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: rgba(0,0,0,0.45);
-            z-index: 1;
-        }
+      .hero-section::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: rgba(0,0,0,0.45); 
+        z-index: 1;
+      }
 
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-        }
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 700px;
+      }
 
-        .hero-content h1 {
-            font-size: 52px;
-            margin: 0 0 15px 0;
-            font-weight: bold;
-        }
+      .hero-content h1 {
+        font-family: 'Playfair Display', serif;
+        font-size: 52px;
+        margin: 0 0 15px 0;
+        font-weight: bold;
+      }
 
-        .hero-content p {
-            font-size: 18px;
-            margin: 0;
-            line-height: 1.5;
-        }
+      .hero-content p {
+        font-size: 18px;
+        margin: 0;
+        line-height: 1.5;
+      }
 
-        /* Breadcrumb */
-        .breadcrumb {
-            font-size: 0.85rem;
-            margin: 20px 40px 0 40px;
-            color: #777;
-        }
+      /* BREADCRUMB */
+      .breadcrumb {
+        font-size: 0.8rem;
+        margin: 30px auto 0 auto;
+        padding: 0 20px;
+        max-width: 800px;
+        color: #777;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-align: left;
+      }
 
-        /* Content */
-        .content {
-            max-width: 800px;
-            margin: 20px auto 60px auto;
-            padding: 0 20px;
-        }
+      /* CONTENT (CARD STYLE) */
+      .content {
+        max-width: 800px;
+        margin: 20px auto 40px auto;
+        padding: 0 20px;
+      }
 
-        h2 {
-            color: #0b5ed7;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-weight: 700;
-        }
+      h2 {
+        font-family: 'Playfair Display', serif;
+        color: #0a4d68;
+        margin-top: 50px;
+        margin-bottom: 25px;
+        font-weight: 700;
+        font-size: 2rem;
+        position: relative;
+        display: inline-block;
+      }
 
-        ul {
-            padding-left: 20px;
-        }
+      h2::after {
+          content: '';
+          display: block;
+          width: 40px;
+          height: 3px;
+          background: #c5a059;
+          margin-top: 8px;
+      }
 
-        ul li {
-            margin-bottom: 10px;
-            line-height: 1.5;
-        }
+      .content ul {
+        padding-left: 0;
+        list-style: none;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+      }
 
-        /* FOOTER */
-        .footer {
-            background: #0a4d68;
-            color: white;
-            padding: 60px 80px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            justify-content: space-between;
-        }
+      .content ul li {
+        background: #ffffff;
+        padding: 25px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+        display: flex;
+        align-items: flex-start;
+        transition: transform 0.3s ease;
+      }
 
-        .footer .col {
-            flex: 1;
-            min-width: 230px;
-        }
+      .content ul li:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+      }
 
-        .footer h1 {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-        }
+      /* Ikon Bintang */
+      .content ul li::before {
+        content: "★"; 
+        color: #c5a059;
+        font-size: 1.2rem;
+        margin-right: 15px;
+        flex-shrink: 0;
+      }
 
-        .footer h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
-        }
+      /* LOCATION SECTION */
+      .location-section {
+        max-width: 800px;
+        margin: 0 auto 80px auto;
+        padding: 0 20px;
+      }
 
-        .footer p {
-            line-height: 1.7;
-        }
+      .map-card {
+        background: #ffffff;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+      }
 
-        .footer ul {
-            list-style: none;
-            padding: 0;
-        }
+      .map-container {
+        position: relative;
+        width: 100%;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 8px;
+        margin-top: 25px;
+        background: #eee;
+      }
 
-        .footer ul li {
-            margin: 10px 0;
-        }
+      .map-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
 
-        .footer ul li a {
-            color: #d8ffff;
-            text-decoration: none;
-            transition: 0.3s;
-        }
+      .btn-maps {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 12px 35px;
+        background-color: #0a4d68;
+        color: white !important;
+        border-radius: 50px;
+        font-weight: bold;
+        transition: 0.3s;
+        box-shadow: 0 4px 10px rgba(10, 77, 104, 0.2);
+        text-decoration: none;
+      }
 
-        .footer ul li a:hover {
-            color: #ff6b6b;
-            padding-left: 5px;
-        }
+      .btn-maps:hover {
+        background-color: #0b5ed7;
+        transform: translateY(-2px);
+      }
 
-        .footer-bottom {
-            background: #06384d;
-            text-align: center;
-            padding: 15px;
-            color: white;
-            font-size: 0.9rem;
-        }
+      /* ============================
+         FOOTER (UPDATED SESUAI BERANDA)
+      ============================= */
+      .footer {
+          background: #0a4d68;
+          color: white;
+          padding: 60px 80px;
+          display: flex;
+          flex-wrap: wrap;
+          gap: 40px;
+          justify-content: space-between;
+          align-items: flex-start; 
+          font-family: 'Poppins', sans-serif; /* Menggunakan Poppins khusus footer */
+      }
 
+      .footer .col { 
+          flex: 1; 
+          min-width: 200px;
+          display: flex;
+          flex-direction: column;
+      }
+
+      /* Kolom pertama lebih lebar untuk Logo + Teks */
+      .footer .col:first-child {
+          flex-basis: 40%; 
+          min-width: 320px;
+      }
+
+      /* Wrapper Logo & Judul */
+      .footer-brand-wrapper {
+          display: flex;
+          align-items: center; 
+          margin-bottom: 15px; 
+      }
+
+      .footer-logo {
+          width: 150px;       
+          height: auto;
+          margin-right: 20px; 
+      }
+
+      .footer h1 { 
+          font-family: 'Poppins', sans-serif;
+          font-size: 2rem;
+          margin: 0;
+          line-height: 1.2;
+          font-weight: 700;
+          margin-bottom: 0 !important;
+      }
+      
+      .footer h3 { font-family: 'Poppins', sans-serif; font-size: 1.3rem; margin-bottom: 20px; color: #ff8c42; }
+
+      .footer p { 
+          line-height: 1.8; 
+          font-size: 1rem; 
+          color: #e0f7fa; 
+      }
+
+      .footer ul { list-style: none; padding: 0; margin: 0; display: block; }
+      .footer ul li { margin: 10px 0; background: none; padding: 0; box-shadow: none; display: block; }
+      .footer ul li::before { content: none; } /* Reset bullet bintang di footer */
+      
+      .footer ul li a {
+          color: #d8ffff;
+          text-decoration: none;
+          transition: 0.3s ease;
+          font-size: 1rem;
+      }
+      .footer ul li a:hover {
+          color: #ff6b6b;
+          padding-left: 6px;
+      }
+
+      .footer-bottom {
+          background: #06384d;
+          text-align: center;
+          padding: 15px;
+          color: white;
+          font-size: 0.9rem;
+          border-top: 1px solid rgba(255,255,255,0.1);
+          font-family: 'Poppins', sans-serif;
+      }
+
+      /* Responsive Fix */
+      @media (max-width: 768px) {
+        .hero-section { padding-left: 20px; height: 350px; }
+        .hero-content h1 { font-size: 36px; }
+        
+        /* Footer Responsive */
+        .footer { padding: 40px 30px; }
+        .footer .col:first-child { flex-basis: 100%; min-width: 200px; }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
 
-    <!-- HERO -->
     <section class="hero-section">
-        <div class="hero-content">
-            <h1>Tangkahan</h1>
-            <p>
-                Tangkahan merupakan surga ekowisata di Langkat, terkenal dengan pengalaman bertemu gajah liar 
-                dan menikmati alam tropis yang masih asri. Tempat ini menawarkan kombinasi petualangan, 
-                relaksasi, dan konservasi satwa, menjadikannya destinasi favorit bagi pecinta alam dan keluarga.
-            </p>
+      <div class="hero-content">
+        <h1>Tangkahan</h1>
+        <p>
+          Tangkahan merupakan surga ekowisata di Langkat, terkenal dengan pengalaman bertemu gajah liar 
+          dan menikmati alam tropis yang masih asri. Tempat ini menawarkan kombinasi petualangan, 
+          relaksasi, dan konservasi satwa, menjadikannya destinasi favorit bagi pecinta alam dan keluarga.
+        </p>
+      </div>
+    </section>
+
+    <nav class="breadcrumb">
+      <a href="index.html">Beranda</a> / 
+      <a href="tujuan.html">Wisata Alam</a> / Tangkahan
+    </nav>
+
+    <section class="content">
+      <h2>Aktivitas Menarik di Tangkahan</h2>
+      <ul>
+        <li>Bertemu dan memberi makan gajah Sumatra di pusat konservasi resmi.</li>
+        <li>Bersantai di sungai yang jernih sambil menikmati suasana hutan tropis.</li>
+        <li>Jungle trekking untuk melihat flora dan fauna unik Langkat.</li>
+        <li>Rafting dan river tubing bagi pengunjung yang mencari petualangan.</li>
+        <li>Fotografi alam liar dan landscape hutan yang menawan.</li>
+        <li>Camping dan menginap di eco-lodge dengan fasilitas sederhana.</li>
+      </ul>
+
+      <h2>Fasilitas yang Tersedia</h2>
+      <ul>
+        <li>Pusat konservasi gajah dan pemandu resmi.</li>
+        <li>Penginapan dan camping ground.</li>
+        <li>Warung makan dan area istirahat.</li>
+        <li>Toilet bersih dan area parkir aman.</li>
+        <li>Jalur trekking dan spot foto menarik.</li>
+      </ul>
+
+      <h2>Tips Berkunjung ke Tangkahan</h2>
+      <ul>
+        <li>Pakai alas kaki nyaman untuk trekking.</li>
+        <li>Gunakan pemandu resmi saat bertemu gajah atau trekking hutan.</li>
+        <li>Bawa perlengkapan renang untuk aktivitas sungai.</li>
+        <li>Hormati satwa liar dan jangan memberi makanan sembarangan.</li>
+        <li>Kunjungi saat musim kemarau agar jalur lebih aman dan nyaman.</li>
+      </ul>
+    </section>
+
+    <section class="location-section">
+        <div class="map-card">
+            <h2 style="margin-top:0;">Lokasi & Peta</h2>
+            <p>Tangkahan Ecotourism terletak di Kec. Batang Serangan, Kabupaten Langkat, Sumatera Utara.</p>
+            
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3981.1890351676645!2d98.08062171532857!3d3.686307597318536!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3039d2c8727e5e69%3A0xc1b91dabeb3a3ec9!2sTangkahan%20Ecotourism!5e0!3m2!1sen!2sid!4v1679888888888!5m2!1sen!2sid" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <br>
+            <a href="https://www.google.com/maps/place/Ecotourism+Tangkahan/@3.6857945,98.0765884,15z/data=!4m6!3m5!1s0x3030b5c8b97f5ee9:0xc0b81db1abea3ec9!8m2!3d3.6863076!4d98.0828104!16s%2Fg%2F11tmx10n99?hl=en&entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn-maps">
+                Buka di Google Maps
+            </a>
         </div>
     </section>
 
-    <!-- Breadcrumb -->
-    <nav class="breadcrumb">
-        <a href="index.html">BERANDA</a> &gt; <a href="tujuan.html">WISATA ALAM</a> &gt; TANGKAHAN
-    </nav>
-
-    <!-- CONTENT -->
-    <section class="content">
-        <h2>Aktivitas Menarik di Tangkahan</h2>
-        <ul>
-            <li>Bertemu dan memberi makan gajah Sumatra di pusat konservasi resmi.</li>
-            <li>Bersantai di sungai yang jernih sambil menikmati suasana hutan tropis.</li>
-            <li>Jungle trekking untuk melihat flora dan fauna unik Langkat.</li>
-            <li>Rafting dan river tubing bagi pengunjung yang mencari petualangan.</li>
-            <li>Fotografi alam liar dan landscape hutan yang menawan.</li>
-            <li>Camping dan menginap di eco-lodge dengan fasilitas sederhana.</li>
-        </ul>
-
-        <h2>Fasilitas yang Tersedia</h2>
-        <ul>
-            <li>Pusat konservasi gajah dan pemandu resmi.</li>
-            <li>Penginapan dan camping ground.</li>
-            <li>Warung makan dan area istirahat.</li>
-            <li>Toilet bersih dan area parkir aman.</li>
-            <li>Jalur trekking dan spot foto menarik.</li>
-        </ul>
-
-        <h2>Tips Berkunjung ke Tangkahan</h2>
-        <ul>
-            <li>Pakai alas kaki nyaman untuk trekking.</li>
-            <li>Gunakan pemandu resmi saat bertemu gajah atau trekking hutan.</li>
-            <li>Bawa perlengkapan renang untuk aktivitas sungai.</li>
-            <li>Hormati satwa liar dan jangan memberi makanan sembarangan.</li>
-            <li>Kunjungi saat musim kemarau agar jalur lebih aman dan nyaman.</li>
-        </ul>
-    </section>
-
-    <!-- FOOTER -->
     <footer class="footer">
         <div class="col">
-            <h1>Wisata Langkat</h1>
+            <div class="footer-brand-wrapper">
+                <img src="../img/logo.png" alt="Logo Wisata Langkat" class="footer-logo">
+                <h1>Wisata Langkat</h1>
+            </div>
+            
             <p>
-                Platform informasi pariwisata terbaik untuk menemukan destinasi alam,
-                budaya, kuliner, dan petualangan di Kabupaten Langkat.
+                Platform informasi pariwisata terbaik untuk <br>menemukan destinasi alam,
+                budaya, kuliner, dan <br>petualangan di Kabupaten Langkat.
             </p>
         </div>
 
@@ -230,7 +388,7 @@
                 <li><a href="kolam-abadi.html">Kolam Abadi</a></li>
                 <li><a href="tangkahan.html">Tangkahan</a></li>
                 <li><a href="bukit-lawang.html">Bukit Lawang</a></li>
-                <li><a href="">Lainnya...</a></li>
+                <li><a href="tujuan.html">Lainnya...</a></li>
             </ul>
         </div>
 
@@ -244,8 +402,7 @@
     </footer>
 
     <div class="footer-bottom">
-        © 2025 Wisata Langkat. Semua Hak Dilindungi.
+      © 2025 Wisata Langkat. Semua Hak Dilindungi.
     </div>
-
-</body>
+  </body>
 </html>
